@@ -1,0 +1,44 @@
+food_id,serving_text,serving_weight,is_grams
+2,1 medium,123,TRUE
+15,1 medium,147,TRUE
+20,2 medium,148,TRUE
+21,1 medium,140,TRUE
+58,1 medium,154,TRUE
+100,1 small,38,TRUE
+100,1 medium,44,TRUE
+100,1 extra large,56,TRUE
+100,1 jumbo,63,TRUE
+111,1/2 cup chopped,80,TRUE
+112,1/2 cup chopped,80,TRUE
+113,1 clove,4,TRUE
+119,1/2 cup chopped,80,TRUE
+120,1 medium (18-20cm),128,TRUE
+121,1 medium (18-20cm),128,TRUE
+122,1 medium,138,TRUE
+123,1 medium,145,TRUE
+124,1 medium,140,TRUE
+125,1 medium,140,TRUE
+126,1 medium,160,TRUE
+139,1 medium,64,TRUE
+162,1 medium (15-17cm),61,TRUE
+184,1 cup shredded,72,TRUE
+185,1 cup shredded,47,TRUE
+186,1 cup shredded,28,TRUE
+187,1 cup shredded,36,TRUE
+205,1/2 cup whole,83,TRUE
+206,1/2 cup,62,TRUE
+207,1/2 cup,73,TRUE
+208,1 cup,96,TRUE
+209,1 cup,96,TRUE
+220,1/2 cup raw,93,TRUE
+221,1/2 cup raw,93,TRUE
+229,28 g,28,TRUE
+230,28 g,28,TRUE
+235,28 g shelled,28,TRUE
+273,1/2 cup,57,TRUE
+288,2 medium,70,TRUE
+299,1/2 cup kernels,82,TRUE
+304,1 medium,65,TRUE
+306,1/2 medium,83,TRUE
+307,1 medium,220,TRUE
+333,1/2 cup,72,TRUE

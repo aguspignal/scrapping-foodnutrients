@@ -1,0 +1,344 @@
+id,barcode,name
+1,,Hummus (store-bought)
+2,,Grape tomatoes
+3,,"Green beans, canned, drained"
+4,,"Beef hot dog, unheated"
+5,,Roasted salted almonds
+6,,Kale
+7,,"Whole egg (pasteurized, frozen)"
+8,,"Egg whites (pasteurized, frozen)"
+9,,Dried egg whites
+10,,"Onion rings, breaded, frozen, baked"
+11,,Dill pickles
+12,,Grated parmesan cheese
+13,,"American cheese (processed, vitamin D)"
+14,,"White grapefruit juice, unsweetened"
+15,,Yellow peaches
+16,,"Sunflower seeds, roasted, salted"
+17,,"White bread, store-bought"
+18,,"Cooked kale, frozen, boiled"
+19,,Yellow mustard
+20,,Green kiwi
+21,,Nectarines
+22,,Cheddar cheese
+23,,"Cottage cheese, low-fat"
+24,,Part-skim mozzarella
+25,,Dried whole egg
+26,,"Egg yolk (pasteurized, frozen)"
+27,,Dried egg yolk
+28,,"Greek yogurt, plain, nonfat"
+29,,"Greek yogurt, strawberry, nonfat"
+30,,Coconut oil
+31,,Braised chicken drumstick (meat only)
+32,,"Braised chicken breast, skinless, boneless"
+33,,Ready-to-serve spaghetti sauce
+34,,"Pre-sliced ham, 96% fat-free"
+35,,Green olives stuffed with pimiento
+36,,"Oatmeal raisin cookies, soft"
+37,,"Canned diced tomatoes, red"
+38,,Haddock
+39,,Pollock
+40,,"Canned light tuna in water, drained"
+41,,"Fried rice (Chinese restaurant), no meat"
+42,,Pork tamale (Latino restaurant)
+43,,Bean pupusas (Latino restaurant)
+44,,"Whole wheat bread, store-bought"
+45,,"Beef tenderloin roast, lean only, cooked"
+46,,"Top loin steak, beef, lean only"
+47,,"Beef eye of round roast, lean only"
+48,,"Beef top round roast, lean only"
+49,,"Porterhouse steak, beef, lean only"
+50,,"T-bone steak, beef, cooked, lean only"
+51,,Frozen unprepared carrots
+52,,Dry white cheese (queso seco)
+53,,Whole milk ricotta cheese
+54,,Swiss cheese
+55,,Dried figs
+56,,Romaine lettuce
+57,,Cantaloupe
+58,,Navel oranges
+59,,"Low-fat milk, 1%, fortified"
+60,,Bartlett pears
+61,,Sweet and sour pork (Chinese restaurant)
+62,,"Table salt, iodized"
+63,,"Nonfat milk, fortified"
+64,,"Salsa, ready-to-serve"
+65,,"Reduced-fat milk, 2%, fortified"
+66,,"Beef breakfast sausage, pre-cooked"
+67,,"Italian sausage, pork, mild, pan-fried"
+68,,"Pork chorizo, cooked, pan-fried"
+69,,"Whole milk, 3.25%, fortified"
+70,,"Turkey breakfast links, mild"
+71,,Granulated sugar
+72,,"Ground turkey, 93% lean, pan-broiled"
+73,,"Ham, sliced, restaurant"
+74,,"American cheese, restaurant"
+75,,"Dry beans, medium red"
+76,,"Dry beans, red"
+77,,"Dry beans, Flor de Mayo"
+78,,"Dry beans, brown"
+79,,"Dry beans, tan"
+80,,"Dry beans, light tan"
+81,,"Dry beans, Carioca"
+82,,"Dry beans, cranberry"
+83,,"Dry beans, light red kidney"
+84,,"Dry beans, pink"
+85,,"Dry beans, dark red kidney"
+86,,"Dry beans, navy"
+87,,"Dry beans, small white"
+88,,"Dry beans, small red"
+89,,"Dry beans, black"
+90,,"Dry beans, pinto"
+91,,"Dry beans, great northern"
+92,,Broccoli
+93,,"Ketchup, restaurant"
+94,,"Egg whites, Grade A, large"
+95,,"Egg yolks, Grade A, large"
+96,,Canola oil
+97,,Corn oil
+98,,Soybean oil
+99,,Extra virgin olive oil
+100,,"Whole eggs, Grade A, large"
+101,,"Pork bacon, cooked, restaurant"
+102,,"Unsalted butter, stick"
+103,,"All-purpose wheat flour, enriched, bleached"
+104,,"All-purpose wheat flour, enriched, unbleached"
+105,,"All-purpose wheat flour, unenriched, unbleached"
+106,,"Whole wheat flour, unenriched"
+107,,"White bread flour, enriched, unbleached"
+108,,"White rice flour, unenriched"
+109,,"Corn flour, yellow, enriched"
+110,,"Salted butter, stick"
+111,,Red onions
+112,,Yellow onions
+113,,Garlic
+114,,"Soy flour, defatted"
+115,,"Soy flour, full-fat"
+116,,Brown rice flour
+117,,Glutinous rice flour
+118,,"Pastry flour, unenriched"
+119,,White onions
+120,,Overripe bananas
+121,,Ripe bananas
+122,,Red delicious apples
+123,,Fuji apples
+124,,Gala apples
+125,,Granny Smith apples
+126,,Honeycrisp apples
+127,,Peanut oil
+128,,Sunflower oil
+129,,Safflower oil
+130,,Extra light olive oil
+131,,Lion's mane mushrooms
+132,,Oyster mushrooms
+133,,Shiitake mushrooms
+134,,White button mushrooms
+135,,"Unsweetened soy milk, shelf-stable"
+136,,"Unsweetened almond milk, shelf-stable"
+137,,Baby spinach
+138,,Mature spinach
+139,,Roma tomatoes
+140,,00 flour
+141,,Whole grain spelt flour
+142,,Coarse semolina flour
+143,,Fine semolina flour
+144,,Apple juice with vitamin C
+145,,"Orange juice, no pulp, refrigerated"
+146,,"Grape juice, purple, with vitamin C"
+147,,"Grape juice, white, with vitamin C"
+148,,"Cranberry juice, shelf-stable"
+149,,"Red grapefruit juice, not fortified"
+150,,"Tomato juice, from concentrate"
+151,,"Orange juice, not from concentrate"
+152,,Portabella mushrooms
+153,,King oyster mushrooms
+154,,Enoki mushrooms
+155,,Crimini mushrooms
+156,,Maitake mushrooms
+157,,Beech mushrooms
+158,,Pioppini mushrooms
+159,,"Sweetened soy milk, refrigerated"
+160,,"Unsweetened almond milk, refrigerated"
+161,,"Unsweetened oat milk, refrigerated"
+162,,Mature carrots
+163,,Baby carrots
+164,,Green bell peppers
+165,,Yellow bell peppers
+166,,Red bell peppers
+167,,Orange bell peppers
+168,,Low-fat buttermilk
+169,,"Plain yogurt, whole milk"
+170,,"Greek yogurt, plain, whole milk"
+171,,"Grated parmesan cheese, refrigerated"
+172,,"Feta cheese, crumbled, whole milk"
+173,,Almond flour
+174,,"Oat flour, whole grain"
+175,,Potato flour
+176,,Creamy peanut butter
+177,,Creamy sesame butter
+178,,Creamy almond butter
+179,,Ground flaxseed
+180,,"Cottage cheese, full fat"
+181,,"Full-fat cream cheese, block"
+182,,Heavy cream
+183,,Full-fat sour cream
+184,,Iceberg lettuce
+185,,Romaine lettuce
+186,,Red leaf lettuce
+187,,Green leaf lettuce
+188,,Pine nuts
+189,,Whole almonds
+190,,"Walnuts, halves"
+191,,"Pecans, halves"
+192,,"Rolled oats, old fashioned"
+193,,Steel cut oats
+194,,Pineapple
+195,,Sweet dark cherries
+196,,Snap beans
+197,,"Russet potatoes, peeled"
+198,,"Red potatoes, peeled"
+199,,"Gold potatoes, peeled"
+200,,"Sweet potatoes, orange, peeled"
+201,,Celery
+202,,Cucumber
+203,,Green cabbage
+204,,Red cabbage
+205,,Strawberries
+206,,Raspberries
+207,,Blueberries
+208,,"Red grapes, seedless"
+209,,"Green grapes, seedless"
+210,,"Unsweetened applesauce, with vitamin C"
+211,,Amaranth flour
+212,,Quinoa flour
+213,,Sorghum flour
+214,,Buckwheat flour
+215,,Rye flour
+216,,Barley flour
+217,,Cassava flour
+218,,Whole buckwheat
+219,,Whole millet
+220,,"Brown rice, long grain"
+221,,"White rice, long grain"
+222,,"Ground beef, 90% lean"
+223,,"Ground beef, 80% lean"
+224,,Ground pork
+225,,"Ground chicken, with additives"
+226,,"Ground turkey, 93% lean"
+227,,Brazil nuts
+228,,Cashew nuts
+229,,Hazelnuts
+230,,Peanuts
+231,,Chestnut flour
+232,,Macadamia nuts
+233,,Pistachio nuts
+234,,Pumpkin seeds
+235,,Sunflower seeds
+236,,Coconut flour
+237,,Dry cannellini beans
+238,,Dry chickpeas
+239,,Dry lentils
+240,,Dry blackeye peas
+241,,"Black beans, canned, drained"
+242,,"Navy beans, canned, drained"
+243,,"Cannellini beans, canned, drained"
+244,,"Chickpeas, canned, drained"
+245,,"Dark red kidney beans, canned, drained"
+246,,"Light red kidney beans, canned, drained"
+247,,"Sweet green peas, canned, drained"
+248,,"Pinto beans, canned, drained"
+249,,"Blackeye peas, canned, drained"
+250,,"Great northern beans, canned, drained"
+251,,"Pork loin, boneless"
+252,,"Pork tenderloin, boneless"
+253,,"Chicken breast, boneless, skinless"
+254,,"Chicken thigh, boneless, skinless"
+255,,"Ribeye steak, beef, choice"
+256,,"Top round steak, beef, choice"
+257,,"Beef chuck roast, choice"
+258,,"Flank steak, beef, choice"
+259,,"Plain yogurt, nonfat"
+260,,Monterey Jack cheese
+261,,American cheese singles
+262,,Sliced provolone cheese
+263,,Oaxaca cheese
+264,,Queso fresco
+265,,Cotija cheese
+266,,"Salmon, sockeye, wild"
+267,,"Salmon, Atlantic, farmed"
+268,,"Tilapia, farmed"
+269,,"Shrimp, farmed"
+270,,"Cod, Atlantic, wild"
+271,,"Catfish, farmed"
+272,,"Blue crab, lump, pasteurized"
+273,,Zucchini
+274,,Yellow summer squash
+275,,Butternut squash
+276,,Acorn squash
+277,,Bok choy
+278,,Cauliflower
+279,,Collard greens
+280,,Brussels sprouts
+281,,Beets
+282,,Eggplant
+283,,"Canned whole tomatoes, salted"
+284,,"Canned tomato sauce, salted"
+285,,"Canned tomato paste, unsalted"
+286,,Canned crushed tomatoes
+287,,Canned tomato puree
+288,,Apricot
+289,,Honeydew melon
+290,,Ripe plantains
+291,,Underripe plantains
+292,,Chia seeds
+293,,Bulgur
+294,,Wild rice
+295,,Baby arugula
+296,,Green asparagus
+297,,"Avocado, Hass"
+298,,Black rice
+299,,"Corn, fresh"
+300,,Einkorn grain
+301,,Pearled farro
+302,,Fonio grain
+303,,Khorasan grain
+304,,"Kiwifruit, peeled"
+305,,"Mandarin, peeled"
+306,,Mango (Tommy Atkins)
+307,,Mango (Ataulfo)
+308,,"Corn flour, masa harina"
+309,,Green Anjou pear
+310,,Black plum
+311,,Red rice
+312,,White sorghum bran
+313,,Pearled white sorghum flour
+314,,Pearled white sorghum grain
+315,,Whole white sorghum
+316,,Overripe plantains
+317,,"Chicken drumstick, with skin"
+318,,"Chicken thigh, with skin"
+319,,"Chicken wing, with skin"
+320,,"Chicken breast, with skin"
+321,,"Lamb, ground"
+322,,"Bison, ground"
+323,,"NY strip steak, beef"
+324,,"Tenderloin steak, beef"
+325,,"Top sirloin steak, beef"
+326,,"Pork chop, center cut"
+327,,"Pork belly, with skin"
+328,,Pawpaw
+329,,Pie pumpkin
+330,,Spaghetti squash
+331,,Rutabaga
+332,,Blackberries
+333,,"Tomatillos, dehusked"
+334,,Napa cabbage
+335,,Leeks
+336,,Green onion (scallion)
+337,,Shallots
+338,,Prune juice
+339,,Pomegranate juice
+340,,Tart cherry juice
+341,,Watermelon
+342,,"Ground beef, 95% lean"
+343,,Ground beef 85% lean
