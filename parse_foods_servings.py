@@ -21,11 +21,13 @@ servings_fields = [
 def parse_brands(brand: str) -> str:
     return re.sub(r',(?=\S)', ', ', brand) 
 
-def is_str_valid(text: str):
+def is_field_valid(text):
     if text is None:
         return False
+    if isinstance(text, (int, float)):
+        return text > 0
     text = text.strip()
-    return text != '' and text.upper() != 'N/A'
+    return text != '' and text.upper() != 'N/A' and text != "0"
 
 
 def parse_usda_csv(file_name):
@@ -49,7 +51,7 @@ def parse_usda_csv(file_name):
             if foodname_row is None:
                 break
 
-            serving_size = int(float(product[1]))
+            serving_size = int(float(product[1].strip()))
             serving_unit = product[2]
 
             foods_writer.writerow({
@@ -60,7 +62,7 @@ def parse_usda_csv(file_name):
 
             servings_writer.writerow({
                 'food_id': id,
-                'serving_text': f'{serving_size.strip()} {serving_unit.strip()}',
+                'serving_text': f'{serving_size} {serving_unit.strip()}',
                 'serving_weight': product[3],
                 'is_grams': True,
             })
@@ -70,7 +72,7 @@ def parse_usda_csv(file_name):
 def parse_off_csv(file_name):
     with open(f'{file_name}.csv', 'r', encoding='utf-8') as data_csvfile, \
         open('tables/foods-openfoodfacts.csv', 'w', encoding='utf-8-sig', newline='') as foods_csvfile, \
-        open('tables/servings-openfoodfacts.csv', 'w', encoding='utf-8', newline='') as servings_csvfile:
+        open('tables/servings-openfoodfacts.csv', 'w', encoding='utf-8-sig', newline='') as servings_csvfile:
         
         reader = csv.reader(data_csvfile)
         next(reader, None)
@@ -86,11 +88,11 @@ def parse_off_csv(file_name):
             product_name = product[2]
             generic_name = product[3]
 
-            if is_str_valid(product_name):
-                name = f'{product_name}, {parse_brands(brand)}' if is_str_valid(brand) else product_name
-            elif is_str_valid(generic_name): 
-                name = f'{parse_brands(brand)}, {generic_name}' if is_str_valid(brand) else generic_name
-            elif is_str_valid(brand):
+            if is_field_valid(product_name):
+                name = f'{product_name}, {parse_brands(brand)}' if is_field_valid(brand) else product_name
+            elif is_field_valid(generic_name): 
+                name = f'{parse_brands(brand)}, {generic_name}' if is_field_valid(brand) else generic_name
+            elif is_field_valid(brand):
                 name = parse_brands(brand)
             else:
                 continue
@@ -101,15 +103,19 @@ def parse_off_csv(file_name):
                 'name': name,
             })
 
-            serving_quantity = product[4]
             serving_unit = product[5]
+            serving_quantity = product[4]
+            serving_quantity = serving_quantity if is_field_valid(serving_quantity) else None
             serving_size = product[6]
+
+            if (is_field_valid(serving_size) and not is_field_valid(serving_quantity)):
+                serving_size = '100 g'
 
             servings_writer.writerow({
                 'food_id': id,
-                'serving_text': serving_size.strip() if is_str_valid(serving_size) else '100 g',
-                'serving_weight': serving_quantity if (serving_quantity != 'N/A' and serving_quantity > 0) else 100,
-                'is_grams': True if (serving_unit == 'g' or serving_unit == 'N/A') else False,
+                'serving_text': serving_size.strip() if is_field_valid(serving_size) else '100 g',
+                'serving_weight': serving_quantity if is_field_valid(serving_quantity) else 100,
+                'is_grams': serving_unit == 'g' or not is_field_valid(serving_unit),
             })
 
             id += 1

@@ -1,25 +1,35 @@
 import json
 import csv
-import unicodedata
+import re
 
 # From the JSONL file with foods of a given country, retrieve all desired information
 
-def is_latin(text: str) -> bool:
-    if not isinstance(text, str):
+arabic_regex = re.compile(r'[\u0600-\u06FF]')
+
+def is_arabic(text):
+    if text is None:
         return False
-    for ch in text:
-        if ch.isalpha():
-            name = unicodedata.name(ch, "")
-            if "LATIN" not in name:
-                return False
-    return True
+    return bool(arabic_regex.search(text))
 
 def is_str_valid(text: str):
     if text is None:
         return False
+    
+    if isinstance(text, (int, float)):
+        return True
+    
     text = text.strip()
     return text != '' and text.upper() != 'N/A'
 
+def get_nutrients(nutriments, nutrient_key: str, default=None):
+    nutrient_100g = nutriments.get(f'{nutrient_key}_100g', None)
+    nutrient = nutrient_100g if nutrient_100g is not None else nutriments.get(f'{nutrient_key}_serving', default)
+    return nutrient
+
+def get_string(product, property_key: str):
+    prop = product.get(f'{property_key}', None)
+    prop = prop if is_str_valid(prop) else 'N/A'
+    return prop
 
 def extract_data(data_filename, output_filename):
     csv_fields = [
@@ -32,57 +42,77 @@ def extract_data(data_filename, output_filename):
         'Fiber', 'Sodium', 'Potassium', 'Cholesterol'
     ]
 
-    with open(f'{output_filename}.csv', 'w', encoding='utf-8-sig', newline='') as csvfile:
+    with open(f'{data_filename}.jsonl', 'r', encoding='utf-8') as datafile, \
+        open(f'{output_filename}.csv', 'w', encoding='utf-8-sig', newline='') as csvfile:
+        
         writer = csv.DictWriter(csvfile, fieldnames=csv_fields)
         writer.writeheader()
 
-        with open(f'{data_filename}.jsonl', 'r', encoding='utf-8') as bulkfile:
-            for line in bulkfile:
-                product = json.loads(line)
+        for line in datafile:
+            product = json.loads(line)
 
-                barcode = product.get('code', 'N/A')
-                if not is_str_valid(barcode):
+            barcode = get_string(product, 'code')
+            brands = get_string(product, 'brands')
+            generic_name = get_string(product, 'generic_name')
+            product_name = get_string(product, 'product_name')
+            if not is_str_valid(brands) and not is_str_valid(product_name) and not is_str_valid(generic_name):
+                continue
+            if is_arabic(brands) or is_arabic(product_name) or is_arabic(generic_name):
+                continue
+
+            nutriments = product.get('nutriments', {})
+            if nutriments == {}:
+                continue
+           
+            protein = get_nutrients(nutriments=nutriments, nutrient_key="protein", default=0)
+            sat_fat = get_nutrients(nutriments=nutriments, nutrient_key="saturated-fat", default=0)
+            mono_fat = get_nutrients(nutriments=nutriments, nutrient_key="monounsaturated-fat", default=0)
+            poly_fat = get_nutrients(nutriments=nutriments, nutrient_key="polyunsaturated-fat", default=0)
+            trans_fat = get_nutrients(nutriments=nutriments, nutrient_key="trans-fat", default=0)
+            fat = get_nutrients(nutriments=nutriments, nutrient_key="fat", default=None)
+            fat = fat if fat is not None else sat_fat + mono_fat + poly_fat + trans_fat
+            carbs = get_nutrients(nutriments=nutriments, nutrient_key="carbohydrates", default=0)
+            tot_sug = get_nutrients(nutriments=nutriments, nutrient_key="sugars", default=0)
+            add_sug = get_nutrients(nutriments=nutriments, nutrient_key="added-sugars", default=0)
+            fiber = get_nutrients(nutriments=nutriments, nutrient_key="fiber", default=0)
+            sodium = get_nutrients(nutriments=nutriments, nutrient_key="sodium", default=0)
+            potassium = get_nutrients(nutriments=nutriments, nutrient_key="potassium", default=0)
+            cholesterol = get_nutrients(nutriments=nutriments, nutrient_key="cholesterol", default=0)
+            calories = get_nutrients(nutriments=nutriments, nutrient_key='energy-kcal', default=None)
+            calories = calories if calories is not None else protein*4 + fat*9 + carbs*4
+
+            serving_quantity = get_string(product, 'serving_quantity')
+            serving_qty_unit = get_string(product, 'serving_quantity_unit')
+            serving_size = get_string(product, 'serving_size')
+
+            if (serving_size == 'N/A' and serving_quantity == "N/A"):
+                if (calories == 0 and fiber == 0 and sodium == 0 and potassium == 0 and cholesterol == 0):
                     continue
 
-                brands = product.get('brands', 'N/A')
-                generic_name = product.get('generic_name', 'N/A')
-                product_name = product.get('product_name', 'N/A')
-                if not is_str_valid(brands) or not is_str_valid(product_name) or not is_str_valid(generic_name):
-                    continue
-                elif not is_latin(brands) or not is_latin(product_name) or not is_latin(generic_name):
-                    continue
+            writer.writerow({
+                'Barcode': barcode,
+                'Brands': brands,
+                'Product name': product_name, 
+                'Generic name': generic_name, 
+                'Serving quantity': serving_quantity, 
+                'Serving qty unit': serving_qty_unit, 
+                'Serving size': serving_size,
 
-                serving_quantity = product.get('serving_quantity', 'N/A')
-                serving_quantity_unit = product.get('serving_quantity_unit', 'N/A')
-                serving_size = product.get('serving_size', 'N/A')
-
-                nutriments = product.get('nutriments', {})
-                if nutriments == {}:
-                    continue
-                
-                writer.writerow({
-                    'Barcode': barcode,
-                    'Brands': brands,
-                    'Product name': product_name, 
-                    'Generic name': generic_name, 
-                    'Serving quantity': serving_quantity, 
-                    'Serving qty unit': serving_quantity_unit, 
-                    'Serving size': serving_size,
-                    'Calories': nutriments.get('energy-kcal_100g', 0),
-                    'Protein': nutriments.get('proteins_100g', 0),
-                    'Fats': nutriments.get('fat_100g', 0),
-                    'Saturated fats': nutriments.get('saturated-fat_100g', 0),
-                    'Monounsaturated fats': nutriments.get('monounsaturated-fat_100g', 0),
-                    'Polyunsaturated fats': nutriments.get('polyunsaturated-fat_100g', 0),
-                    'Trans fats': nutriments.get('trans-fat_100g', 0),
-                    'Carbs': nutriments.get('carbohydrates_100g', 0),
-                    'Total sugars': nutriments.get('sugars_100g', 0),
-                    'Added sugars': nutriments.get('added-sugars_100g', 0),
-                    'Fiber': nutriments.get('fiber_100g', 0),
-                    'Sodium': nutriments.get('sodium_100g', 0),
-                    'Potassium': nutriments.get('potassium_100g', 0),
-                    'Cholesterol': nutriments.get('cholesterol_100g', 0)
-                })
+                'Calories': calories,
+                'Protein': protein,
+                'Fats': fat,
+                'Saturated fats': sat_fat,
+                'Monounsaturated fats': mono_fat,
+                'Polyunsaturated fats': poly_fat,
+                'Trans fats': trans_fat,
+                'Carbs': carbs,
+                'Total sugars': tot_sug,
+                'Added sugars': add_sug,
+                'Fiber': fiber,
+                'Sodium': sodium,
+                'Potassium': potassium,
+                'Cholesterol': cholesterol
+            })
 
 if __name__ == "__main__":
     data_filename = "data-openfoodfacts_argentina"
