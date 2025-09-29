@@ -95,20 +95,20 @@ def parse_off_csv(file_name):
             else:
                 continue
 
-            serving_quantity = product[4]
-            serving_unit = product[5]
-            serving_size = product[6]
-
             foods_writer.writerow({
                 'id': id,
                 'barcode': str(product[0]),
                 'name': name,
             })
 
+            serving_quantity = product[4]
+            serving_unit = product[5]
+            serving_size = product[6]
+
             servings_writer.writerow({
                 'food_id': id,
                 'serving_text': serving_size.strip() if is_str_valid(serving_size) else '100 g',
-                'serving_weight': serving_quantity if serving_quantity != 'N/A' else 100,
+                'serving_weight': serving_quantity if (serving_quantity != 'N/A' and serving_quantity > 0) else 100,
                 'is_grams': True if (serving_unit == 'g' or serving_unit == 'N/A') else False,
             })
 
